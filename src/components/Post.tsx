@@ -1,0 +1,142 @@
+import { useState, MouseEventHandler, memo } from "react";
+import Link from "next/link";
+// store
+import { useStore } from "@/zustand/store";
+import { shallow } from "zustand/shallow";
+// type
+import { TPost } from "@/zustand/types";
+// css
+import styles from "./Post.module.sass";
+// константы
+import { editIcon } from "@/constants/constants";
+
+export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite }: TPost) => {
+	const [edit, setEdit] = useState(false);
+	const [editFields, setEditFields] = useState({ login: "", msg: "" });
+
+	const {
+		removePost,
+		updatePost,
+		deleteRemotePost,
+		updateRemotePost,
+		incrementRemoteLikesCount,
+		incrementLikesCount,
+		toggleFavorite,
+		toggleRemoteFavorite,
+	} = useStore(
+		(state) => ({
+			removePost: state.removePost,
+			updatePost: state.updatePost,
+			deleteRemotePost: state.deleteRemotePost,
+			updateRemotePost: state.updateRemotePost,
+			incrementRemoteLikesCount: state.incrementRemoteLikesCount,
+			incrementLikesCount: state.incrementLikesCount,
+			toggleFavorite: state.toggleFavorite,
+			toggleRemoteFavorite: state.toggleRemoteFavorite,
+		}),
+		shallow
+	);
+
+	const editHandler = (): void => {
+		setEdit((prev) => !prev);
+	};
+
+	const updatePostHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
+		updatePost(id, editFields);
+		updateRemotePost(id, editFields);
+		setEditFields({ login: "", msg: "" });
+		setEdit(false);
+	};
+
+	const deletePost = (id: string) => {
+		removePost(id);
+		deleteRemotePost(id);
+	};
+
+	const iconsHandler = (e: any, id: string) => {
+		if (!(e.target.closest(".likesInc") || e.target.closest(`.favorite`))) return;
+
+		switch (true) {
+			case !!e.target.closest(".likesInc"):
+				incrementLikesCount(id);
+				incrementRemoteLikesCount(id);
+				break;
+			default:
+				toggleFavorite(id);
+				toggleRemoteFavorite(id, favorite);
+				break;
+		}
+	};
+
+	return (
+		<article className={styles.post} style={edit ? { backgroundColor: "rgba(0,0,0, .8)" } : undefined}>
+			<div className={styles.header}>
+				<time className={styles.date}> {new Date(date).toLocaleString()} </time>
+				{edit ? (
+					<input
+						type="text"
+						className={`${styles.input} ${styles.login}`}
+						placeholder="Редактировать:"
+						onChange={(e) => setEditFields({ ...editFields, [e.target.name]: e.target.value })}
+						value={editFields.login}
+						name="login"
+					/>
+				) : (
+					<span className={styles.login}> {login} </span>
+				)}
+			</div>
+			{edit ? (
+				<input
+					type="text"
+					className={styles.input}
+					placeholder="Редактировать:"
+					autoFocus
+					onChange={(e) => setEditFields({ ...editFields, [e.target.name]: e.target.value })}
+					value={editFields.msg}
+					name="msg"
+				/>
+			) : (
+				<p className={styles.msg}>{msg}</p>
+			)}
+			<div className={styles.link__container}>
+				<Link href={`/posts/${postCode}`} className={styles.link__container__link}>
+					{" "}
+					Подробнее...{" "}
+				</Link>
+			</div>
+			<div className={styles.icons} onClick={(e) => iconsHandler(e, id)}>
+				<div className={styles.favorite}>
+					{favorite ? (
+						<span className="material-symbols-outlined favorite" style={{ color: "teal" }}>
+							heart_plus
+						</span>
+					) : (
+						<span className="material-symbols-outlined favorite">favorite</span>
+					)}
+				</div>
+				{likesCount ? (
+					<span className="material-symbols-outlined likesInc" style={{ color: "teal" }}>
+						{" "}
+						recommend{" "}
+					</span>
+				) : (
+					<span className="material-symbols-outlined likesInc">thumb_up</span>
+				)}
+				<span className={styles.likesCount}> {likesCount} </span>
+				<span className="material-symbols-outlined" onClick={editHandler} style={editIcon}>
+					edit_square
+				</span>
+				<span className="material-symbols-outlined" onClick={() => deletePost(id)}>
+					delete
+				</span>
+			</div>
+			<button
+				className={edit ? `${styles.button} ${styles.active}` : `${styles.button}`}
+				onClick={updatePostHandler}
+			>
+				{" "}
+				Подтвердить
+			</button>			
+		</article>
+	);
+});

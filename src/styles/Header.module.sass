@@ -1,0 +1,51 @@
+@import "./variables.module.sass"
+
+.header
+    min-height: 8vh
+    background-color: $app-element-color
+    font-family: $app-title-font
+    display: flex
+    padding: $app-md-pd
+    justify-content: space-between
+    font-family: $app-md-ff
+    align-items: center
+
+.logo
+    width: 70px
+
+    &__img
+        width: 100%
+
+.nav
+    width: 30%
+
+.menuList
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: $app-md-pd
+
+    li:last-child 
+
+        .menuList__link
+            color: $app-danger-color 
+
+
+.menuList__link
+    font-size: $app-md-ff
+    text-transform: capitalize
+    font-variant: small-caps
+    transition: 0.07s all linear
+
+    &:hover
+        color: $app-golden-color
+
+    &.activeLink
+        color: $app-golden-color
+        transform: scale(1.05)
+        text-decoration: underline
+
+    
+    
+    
+    

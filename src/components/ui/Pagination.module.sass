@@ -1,0 +1,19 @@
+@import "../../styles/variables.module.sass"
+
+.pagination
+    padding: $app-sm-pd
+    width: 80%
+    text-align: right
+    margin: $app-sm-pd auto
+    color: $app-danger-color
+
+    &__arrows
+        font-weight: 700
+        font-size: 3.5rem
+        &__right
+            font-size: 3.5rem
+            cursor: pointer
+            transform: rotate(180deg)
+
+            &:hover
+                color: $app-teal-color

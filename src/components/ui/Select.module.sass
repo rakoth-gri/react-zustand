@@ -1,0 +1,33 @@
+@import "../../styles/variables.module.sass"
+@import "../../styles/mixins"
+
+.select
+    position: absolute
+    font-size: 20px
+    padding: $app-sm-pd
+    z-index: 4
+    background-color: $app-element-color
+    border-radius: $app-border-radius
+    font-variant: small-caps
+    width: auto
+    // все опции ---------- --------------
+    &__options
+        width: 100%
+        position: absolute
+        top: 100%
+        left: 0%
+        background-color: inherit
+        border-radius: 0 0 $app-border-radius $app-border-radius
+
+    &__option
+        text-align: center
+        padding: $app-sm-pd
+        color: $app-light-color
+        @include after
+
+        &:hover
+            color: $app-teal-color
+
+// Категории
+
+

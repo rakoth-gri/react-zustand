@@ -1,0 +1,30 @@
+{
+	"name": "next-2023",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "next dev -p 3013",
+		"build": "next build",
+		"start": "next start",
+		"export": "next export",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@types/node": "18.15.11",
+		"@types/react": "18.0.35",
+		"@types/react-dom": "18.0.11",
+		"dotenv": "^16.0.3",
+		"firebase": "^9.19.1",
+		"next": "13.3.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"typescript": "5.0.4",
+		"uuid": "^9.0.0",
+		"zustand": "^4.3.7"
+	},
+	"devDependencies": {
+		"@types/uuid": "^9.0.1",
+		"sass": "^1.62.0"
+	}
+}

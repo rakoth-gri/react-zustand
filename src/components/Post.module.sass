@@ -1,0 +1,102 @@
+@import "../styles/variables.module.sass"
+
+.post
+    background-color: #f3cbcb
+    padding: $app-sm-pd
+    font-family: $app-base-font
+    border-radius: $app-border-radius
+    margin: $app-sm-pd 0
+    font-size: $app-sm-ff
+    font-weight: 300
+    position: relative
+
+.header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: $app-sm-pd
+
+.login, .date
+    display: block
+    padding: $app-sm-pd
+    text-transform: capitalize
+.date
+    color: $app-danger-color
+
+.msg, .input
+    padding: $app-sm-pd
+    text-align: justify
+    margin: $app-sm-pd 0
+    font-weight: 300
+
+.input.login
+    width: auto    
+
+.input    
+    color: $app-light-color
+    font-weight: 400
+
+.link__container
+    text-align: right
+    padding: $app-sm-pd
+
+    &__link
+        font-size: $app-sm-ff
+        color: $app-danger-color
+        font-weight: 300
+        text-align: right
+        text-transform: uppercase
+        padding: $app-sm-pd
+        display: inline
+
+// иконки -------->>>>>>
+//////////////////////////////////////////////////
+.icons
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    padding: $app-sm-pd
+    cursor: pointer
+
+    span
+        &:first-child
+            margin-right: 0.5rem
+
+.likesCount
+    font-size: 1.5rem
+    font-family: $app-title-font
+    color: $app-teal-color
+    font-weight: 500
+    position: relative
+    top: -1.5px
+    margin-right: 1.5rem
+
+.favorite
+    margin-right: auto
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+
+    span
+        top: 2px
+
+// Кнопка
+.button
+    position: absolute
+    border: 1px solid $app-light-color
+    width: auto
+    bottom: 1rem
+    left: -10%
+    border-radius: $app-border-radius
+    color: $app-light-color
+    font-weight: 500
+    padding: $app-sm-pd
+    transition: 0.2s all linear
+    cursor: pointer
+
+    &:hover
+        color: $app-danger-color
+
+.active
+   left: 40%         

@@ -1,0 +1,49 @@
+@import "../../styles/variables.module.sass"
+@import "../../styles/mixins"
+
+.category
+    position: fixed
+    background-color: $app-element-color
+    top: 14%
+    right: 0%
+    color: $app-light-color
+    font-family: $app-base-font
+    font-weight: 500
+    text-transform: capitilize
+    font-size: 20px
+    z-index: 4
+    width: 15%
+
+    &__panel
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        padding: $app-sm-pd $app-lg-pd
+
+    &__list
+        padding: $app-sm-pd
+        list-style-type: none
+        position: absolute
+        background-color: inherit
+        width: 100%
+        top: 100%
+        transform: translateX(120%)
+        transition: 0.2s all ease
+
+        &.active
+            transform: translateX(0%)
+
+
+        &__item
+            padding: $app-sm-pd
+            text-align: center
+            @include after
+
+    &__trigger
+        font-size: 2.5rem
+
+        &:hover
+            color: $app-teal-color
+
+.selected
+    color: $app-danger-color

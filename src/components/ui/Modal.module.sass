@@ -1,0 +1,25 @@
+@import "../../styles/variables.module.sass"
+
+.modal
+    position: absolute
+    left: 50%
+    top: 15%
+    transform: translateX(-50%)
+    width: 47%
+    padding: $app-md-pd
+    background-color: $app-dark-color
+    color: $app-golden-color
+    z-index: 3
+    height: 210px
+    font-family: $app-title-font
+    font-size: $app-md-ff
+    border-radius: $app-border-radius
+
+    &__title
+        text-transform: capitalize
+        font-variant: small-caps
+
+    &__msg
+        font-family: inherit
+        text-align: center
+       
