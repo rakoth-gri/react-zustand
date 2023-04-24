@@ -37,3 +37,5 @@ After deploying, view your app!
 2. **Create an account using GITHUB PROFILE at [VERSEL OFFICIAL WEBSITE](https://vercel.com.)** <br> 
 3. **ADD A NEW PROJECT** <br> 
 4. **FOLLOW THE INSTRUCTIONS BELOW** <br> 
+
+## **P.S. to determine enviroment variables - add them without NEXT_PUBLIC_ browser prefix**
