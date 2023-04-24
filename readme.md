@@ -1,15 +1,15 @@
-#DEPLOY FIREBASE:
+# DEPLOY FIREBASE:
 
 ## ssg variant: <br>
 
 1. **npm run build**
 2. **npm run export** 
 
-"scripts": { <br>
-1. "dev": "next dev", <br>
-2. "build": "next build", <br>
-3. "start": "next start", <br>
-4. "export": "next export", <br>
+"scripts": { 
+1. "dev": "next dev", 
+2. "build": "next build", 
+3. "start": "next start", 
+4. "export": "next export", 
 }
 
 Put the "out" dir with your static  - inside 'public' folder of **Hosting Provider**
@@ -31,7 +31,7 @@ During initializing - choose the default dir 'out' - we created earlier
 
 After deploying, view your app! 
 
-#DEPLOY VERSEL: <br> 
+# DEPLOY VERSEL: <br> 
 
 1. **Create a git repo with your project** <br> 
 2. **Create an account using GITHUB PROFILE at [VERSEL OFFICIAL WEBSITE](https://vercel.com.)** <br> 
