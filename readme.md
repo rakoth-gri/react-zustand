@@ -38,4 +38,4 @@ After deploying, view your app!
 3. **ADD A NEW PROJECT** <br> 
 4. **FOLLOW THE INSTRUCTIONS BELOW** <br> 
 
-## **P.S. to determine enviroment variables - add them without NEXT_PUBLIC_ browser prefix**
+## **P.S. to determine enviroment variables inside VERCEL HOSTING - add them without NEXT_PUBLIC_ browser prefix**
