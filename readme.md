@@ -14,11 +14,11 @@
 
 Put the "out" dir with your static  - inside 'public' folder of **Hosting Provider**
 
-FILE .htaccess - in the public folder of hosting Provider:
+FILE .htaccess - in the public folder of hosting Provider: <br>
 RewriteEngine on <br>
 RewriteCond %{REQUEST_FILENAME} !-d <br>
 RewriteCond %{REQUEST_FILENAME}.html -f <br>
-RewriteRule ^(.\*)$ $1.html <br>
+RewriteRule ^(.\*)$ $1.html 
 
 
 ## Sign in to Google: **firebase login**
