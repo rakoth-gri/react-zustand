@@ -1,8 +1,7 @@
 {
 	"name": "next-2023",
 	"version": "0.1.0",
-	"private": true,
-	"type": "module",
+	"private": true,	
 	"scripts": {
 		"dev": "next dev -p 3013",
 		"build": "next build",
