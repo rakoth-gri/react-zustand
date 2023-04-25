@@ -9,15 +9,22 @@
     justify-content: space-between
     font-family: $app-md-ff
     align-items: center
+    position: relative
 
 .logo
-    width: 70px
+    width: 100px
 
     &__img
         width: 100%
 
 .nav
-    width: 30%
+    width: 45%
+    background-color: inherit
+
+    &.active
+        z-index: 10
+        opacity: .85
+        transform: scale(1.0)
 
 .menuList
     display: flex
@@ -25,27 +32,83 @@
     justify-content: space-between
     padding: $app-md-pd
 
-    li:last-child 
+    li:last-child
 
         .menuList__link
-            color: $app-danger-color 
+            color: $app-danger-color
 
+    &__link
+        font-size: $app-md-ff
+        text-transform: capitalize
+        font-variant: small-caps
+        transition: 0.07s all linear
 
-.menuList__link
-    font-size: $app-md-ff
-    text-transform: capitalize
-    font-variant: small-caps
-    transition: 0.07s all linear
+        &:hover
+            color: $app-golden-color
 
-    &:hover
-        color: $app-golden-color
+        &.activeLink
+            color: $app-golden-color
+            transform: scale(1.05)
+            text-decoration: underline
 
-    &.activeLink
-        color: $app-golden-color
-        transform: scale(1.05)
-        text-decoration: underline
+.burger
+    position: absolute
+    z-index: 15
+    display: none
+    top: 2%
+    right: 0.1%
 
-    
-    
-    
-    
+// MEDIA QUERRIES ----------- ///////////////////////////////////////// 
+
+@media screen and (max-width: 1199.98px)
+    .nav
+        width: 55%
+
+@media screen and (max-width: 991.98px)
+
+    .nav
+        position: absolute
+        top: 2%
+        right: 1%
+        z-index: 0
+        width: 25%
+        opacity: 0
+        transform: scale(0.1)
+        transition: 0.3s all linear
+
+    .menuList
+        flex-direction: column
+        background-color: inherit
+
+        &__link
+            padding: $app-sm-pd
+
+    .burger
+        display: block
+
+        &__icon
+            font-size: 2.5rem
+
+@media screen and (max-width: 767.99px)
+
+    .burger__icon
+        font-size: 2.1rem
+
+    .nav
+        width: 30%
+
+    .menuList__link__link
+        font-size: $app-md-ff
+
+@media screen and (max-width: 575.99px)
+    .nav
+        width: 40%
+
+    .menuList__link__link
+        font-size: 1rem
+
+    .logo
+        width: 60px
+
+    .header        
+        height: 10vh

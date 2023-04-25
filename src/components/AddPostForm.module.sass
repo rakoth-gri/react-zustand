@@ -7,10 +7,10 @@
     margin: $app-lg-pd auto
     font-size: $app-md-ff
 
-.input, .textarea, .select
+.input, .textarea
     margin: $app-md-pd auto
     padding: $app-md-pd
-    
+
 .formButton
     padding: $app-md-pd
     background-color: $app-golden-color
@@ -19,3 +19,27 @@
 
     &__disabled
         opacity: 0.4
+
+// MEDIA QUERRIES ----------- ////////////////////////////////////////        
+
+@media screen and (max-width: 1199.98px)
+    .form
+        width: 90%
+
+    .input, .textarea
+        width: 85%
+
+@media screen and (max-width: 991.98px)
+
+    .form
+        font-size: 20px
+
+    .input, .textarea
+        margin: $app-sm-pd auto
+        padding: $app-sm-pd
+        width: 92%
+
+@media screen and (max-width: 575.99px)
+    .form
+        width: 100%
+        font-size: 1.2rem

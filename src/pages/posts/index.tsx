@@ -31,12 +31,12 @@ const Posts = (props: { posts: Array<TPost> }) => {
 	return (
 		<Layout title="posts" desc="this page contains all posts, which was published">
 			<>
-				<Filter Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировать по:'}/>
 				{loading && <Spinner />}
 				<Title Tag={"h1"} color={"rgba(0,0,0, .89)"}>
 					{" "}
 					Опубликованные посты:{" "}
 				</Title>
+				<Filter Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировка:'}/>
 				<Pagination />
 				<>
 					{posts.length ? (

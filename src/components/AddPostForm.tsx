@@ -1,8 +1,9 @@
-import { useState, ChangeEventHandler, FormEventHandler, memo } from "react";
+import { useState, ChangeEventHandler, ChangeEvent, FormEventHandler, memo, useCallback } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
 // zustand
 import { useStore } from "@/zustand/store";
+import { shallow } from "zustand/shallow";
 // типы
 import { TPost } from "@/zustand/types";
 // компоненты
@@ -11,29 +12,35 @@ import { Modal } from "./ui/Modal";
 import { Select } from "./ui/Select";
 // сервисы
 import { genPostCode } from "@/service/genPostCode";
+import { deBounce } from "@/service/deBounce";
 // константы
-import { constants } from "@/constants/constants";
 import styles from "./AddPostForm.module.sass";
 
 export const AddPostForm = memo(() => {
-	const [post, setPost] = useState<{ [key: string]: string }>({ login: "", msg: "", category: "" });
-	const [error, setError] = useState<{ [key: string]: string }>({ login: " ", msg: " ", category: " "});
-	const [modal, setModal] = useState(false);
-	
-	const [addPost, addRemotePost, category] = useStore((state) => [
-		state.addPost,
-		state.addRemotePost,
-		state.category,
-	]);
-
 	const push = useRouter().push;
+
+	const [post, setPost] = useState<{ [key: string]: string }>({ login: "", msg: "", category: "" });
+	const [error, setError] = useState<{ [key: string]: string }>({ login: " ", msg: " ", category: " " });
+	const [modal, setModal] = useState(false);
+
+	const [addPost, addRemotePost, category] = useStore(
+		(state) => [state.addPost, state.addRemotePost, state.category],
+		shallow
+	);
+
+	// const deBounced = useCallback(
+	// 	deBounce((e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+	// 		setPost({ ...post, [e.target.name]: e.target.value.toLowerCase() });
+	// 		setError({ ...error, [e.target.name]: e.target.value });
+	// 	}, 500),
+	// 	[]
+	// );
 
 	const isDisabled = () => !(post.login && post.msg && post.category);
 
-	const ChangePostHandler: ChangeEventHandler<
-		HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement > = (e) => {
+	const ChangePostHandler: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> = (e) => {
 		if (!(e.target instanceof HTMLElement)) return;
-
+		// deBounced(e);
 		setPost({ ...post, [e.target.name]: e.target.value.toLowerCase() });
 		setError({ ...error, [e.target.name]: e.target.value });
 	};
@@ -81,15 +88,7 @@ export const AddPostForm = memo(() => {
 					value={post.msg}
 				></textarea>
 				{!error.msg && <Error value="Заполните поле для сообщения..." />}
-				{/* <select className={styles.select} name="category" value={post.category} onChange={formElemsHandler}>
-					{constants.SELECT.CATEGORY.map(({ value, text }) => (
-						<option value={value} key={value}>
-							{" "}
-							{text}{" "}
-						</option>
-					))}
-				</select> */}
-				<Select value={post.category} setPost={setPost} post={post} error={error} setError={setError}/>
+				<Select value={post.category} setPost={setPost} post={post} error={error} setError={setError} />
 				{!error.category && <Error value="Выберите категорию поста..." />}
 				<button
 					className={`${styles.formButton} ${isDisabled() && styles.formButton__disabled}`}

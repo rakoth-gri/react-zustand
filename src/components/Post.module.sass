@@ -20,7 +20,7 @@
 .login, .date
     display: block
     padding: $app-sm-pd
-       
+
 .date
     color: $app-danger-color
     font-variant: small-caps
@@ -31,12 +31,11 @@
     padding: $app-sm-pd
     text-align: justify
     margin: $app-sm-pd 0
-    
 
 .input.login
-    width: auto    
+    width: auto
 
-.input    
+.input
     color: $app-light-color
     font-weight: 400
 
@@ -85,26 +84,52 @@
     span
         top: 2px
 
-// Кнопка
-.update, .cancel
+// Кнопки редактирования поста
+
+.editButtons
     position: absolute
+    display: flex
+    width: auto
+    bottom: 5%
+    left: 10%
+    opacity: 0
+    transform: scale(0)
+    transition: 0.3s all ease  
+
+.activeEditButtons    
+    opacity: 1
+    transform: scale(1)    
+
+.update, .cancel    
     border: 1px solid $app-light-color
     width: auto
-    bottom: 1rem
-    left: -10%
+    bottom: 1rem   
     border-radius: $app-border-radius
     color: green
     font-weight: 500
     padding: $app-sm-pd
     transition: 0.2s all linear
     cursor: pointer
-    opacity: 0.1   
+    margin-right: 0.8rem
 
-.activeUpdate
-   left: 40%
-   opacity: 0.88  
+.cancel     
+    color: $app-danger-color
 
-.activeCancel
-   left: 48%
-   color: $app-danger-color
-   opacity: 0.88                 
+// MEDIA QUERRIES ----------- /////////////////////////////////////////          
+
+@media screen and (max-width: 991.98px)
+    .login
+        padding: 4px 0px
+
+@media screen and (max-width: 767.98px)
+    .likesCount
+        font-size: 1.05rem
+        margin-right: 1rem
+
+    .post
+        font-size: 0.9rem
+
+    .link__container__link
+        font-size: inherit
+
+    

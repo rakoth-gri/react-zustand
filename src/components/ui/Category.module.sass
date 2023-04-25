@@ -3,8 +3,8 @@
 
 .category
     position: fixed
-    background-color: $app-element-color
-    top: 14%
+    background-color: $app-greyTransparent-color
+    top: 132px
     right: 0%
     color: $app-light-color
     font-family: $app-base-font
@@ -24,7 +24,7 @@
         padding: $app-sm-pd
         list-style-type: none
         position: absolute
-        background-color: inherit
+        background-color: $app-element-color
         width: 100%
         top: 100%
         transform: translateX(120%)
@@ -51,3 +51,31 @@
 
 .selected
     color: $app-danger-color
+
+// MEDIA QUERRIES ----------- /////////////////////////////////////////         
+
+@media screen and (max-width: 1199.98px)
+    .category
+        width: 23%
+        right: 1%
+
+@media screen and (max-width: 991.98px)
+    .category
+        width: 26%
+
+        &__trigger
+            font-size: 2rem
+
+        &__panel
+            padding: $app-sm-pd
+
+@media screen and (max-width: 767.98px)
+    .category
+        width: 32%
+        font-size: 1.1rem
+
+@media screen and (max-width: 575.99px)
+
+    .category
+        top: 13%
+        width: auto

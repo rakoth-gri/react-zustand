@@ -138,20 +138,22 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 					delete
 				</span>
 			</div>
-			<button
-				className={edit ? `${styles.update} ${styles.activeUpdate}` : `${styles.update}`}
-				onClick={updatePostHandler}
-			>
-				{" "}
-				Завершить
-			</button>
-			<button
-				className={edit ? `${styles.cancel} ${styles.activeCancel}` : `${styles.cancel}`}
-				onClick={() => setEdit(false)}
-			>
-				{" "}
-				Отмена
-			</button>
+			<div className={edit ? `${styles.editButtons} ${styles.activeEditButtons}` : styles.editButtons}>
+				<button
+					className={styles.update}
+					onClick={updatePostHandler}
+				>
+					{" "}
+					Обновить
+				</button>
+				<button
+					className={styles.cancel}
+					onClick={() => setEdit(false)}
+				>
+					{" "}
+					Отмена
+				</button>
+			</div>
 		</article>
 	);
 });
