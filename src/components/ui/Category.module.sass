@@ -33,11 +33,15 @@
         &.active
             transform: translateX(0%)
 
-
         &__item
             padding: $app-sm-pd
             text-align: center
+            cursor: pointer
+
             @include after
+
+            &:hover
+                color: $app-danger-color
 
     &__trigger
         font-size: 2.5rem

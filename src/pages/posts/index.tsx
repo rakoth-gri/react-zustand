@@ -11,7 +11,7 @@ import { Layout } from "@/components/Layout";
 import { Post } from "@/components/Post";
 import { Title } from "@/components/ui/Title";
 import { Spinner } from "@/components/ui/Spinner";
-import Select from "@/components/ui/Select";
+import Filter from "@/components/ui/Filter";
 import { Pagination } from "@/components/ui/Pagination";
 import { Category } from "@/components/ui/Category";
 
@@ -31,16 +31,7 @@ const Posts = (props: { posts: Array<TPost> }) => {
 	return (
 		<Layout title="posts" desc="this page contains all posts, which was published">
 			<>
-				<Select Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировать по:'}/>
-				{/* <Select
-					Tag="h4"
-					color="brown"
-					setParam={setCategory}
-					param={category}
-					list={constants.SELECT.CATEGORY}
-					category
-					title={'Категория:'}
-				/> */}
+				<Filter Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировать по:'}/>
 				{loading && <Spinner />}
 				<Title Tag={"h1"} color={"rgba(0,0,0, .89)"}>
 					{" "}

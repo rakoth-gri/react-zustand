@@ -1,15 +1,15 @@
 @import "../../styles/variables.module.sass"
 @import "../../styles/mixins"
 
-.select
+.filter
+    position: absolute
     font-size: 20px
     padding: $app-sm-pd
-    width: 80%
-    color: inherit
+    z-index: 4
+    background-color: $app-element-color
+    border-radius: $app-border-radius
     font-variant: small-caps
-    position: relative
-    margin: $app-md-pd auto
-    font-weight: 300
+    width: auto
     // все опции ---------- --------------
     &__options
         width: 100%
@@ -18,19 +18,17 @@
         left: 0%
         background-color: inherit
         border-radius: 0 0 $app-border-radius $app-border-radius
-        z-index: 4
 
     &__option
         text-align: center
         padding: $app-sm-pd
         color: $app-light-color
-        background-color: $app-element-color        
+
         @include after
 
         &:hover
             color: $app-teal-color
 
-    &:hover
-        border-left: 2px solid teal
-        border-right: 2px solid teal
-        color: teal
+
+
+

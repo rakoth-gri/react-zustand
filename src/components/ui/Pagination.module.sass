@@ -2,14 +2,18 @@
 
 .pagination
     padding: $app-sm-pd
-    width: 80%
     text-align: right
     margin: $app-sm-pd auto
     color: $app-danger-color
+    font-family: $app-title-font
 
     &__arrows
         font-weight: 700
-        font-size: 3.5rem
+        font-size: $app-md-ff
+        display: flex
+        align-items: center
+        justify-content: flex-end
+        opacity: .91
         &__right
             font-size: 3.5rem
             cursor: pointer
@@ -17,3 +21,6 @@
 
             &:hover
                 color: $app-teal-color
+
+    &:hover
+        color: $app-teal-color

@@ -1,4 +1,4 @@
-import { useState, MouseEventHandler, memo } from "react";
+import { useState, MouseEventHandler, MouseEvent, memo } from "react";
 import Link from "next/link";
 // store
 import { useStore } from "@/zustand/store";
@@ -9,6 +9,9 @@ import { TPost } from "@/zustand/types";
 import styles from "./Post.module.sass";
 // константы
 import { editIcon } from "@/constants/constants";
+// сервисы
+import { dateFormatter } from "@/service/dateFormatter";
+import { LoginView } from "@/service/loginView";
 
 export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite }: TPost) => {
 	const [edit, setEdit] = useState(false);
@@ -53,7 +56,9 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 		deleteRemotePost(id);
 	};
 
-	const iconsHandler = (e: any, id: string) => {
+	const iconsHandler = (e: MouseEvent<HTMLDivElement>, id: string) => {
+		if (!(e.target instanceof HTMLElement)) return;
+
 		if (!(e.target.closest(".likesInc") || e.target.closest(`.favorite`))) return;
 
 		switch (true) {
@@ -71,7 +76,7 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 	return (
 		<article className={styles.post} style={edit ? { backgroundColor: "rgba(0,0,0, .8)" } : undefined}>
 			<div className={styles.header}>
-				<time className={styles.date}> {new Date(date).toLocaleString()} </time>
+				<time className={styles.date}> {dateFormatter(date)} </time>
 				{edit ? (
 					<input
 						type="text"
@@ -82,7 +87,10 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 						name="login"
 					/>
 				) : (
-					<span className={styles.login}> {login} </span>
+					<>
+						<LoginView login={login} />
+						<span className={styles.login}> {login.slice(1)} </span>
+					</>
 				)}
 			</div>
 			{edit ? (
@@ -131,12 +139,19 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 				</span>
 			</div>
 			<button
-				className={edit ? `${styles.button} ${styles.active}` : `${styles.button}`}
+				className={edit ? `${styles.update} ${styles.activeUpdate}` : `${styles.update}`}
 				onClick={updatePostHandler}
 			>
 				{" "}
-				Подтвердить
-			</button>			
+				Завершить
+			</button>
+			<button
+				className={edit ? `${styles.cancel} ${styles.activeCancel}` : `${styles.cancel}`}
+				onClick={() => setEdit(false)}
+			>
+				{" "}
+				Отмена
+			</button>
 		</article>
 	);
 });

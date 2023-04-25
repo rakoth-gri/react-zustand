@@ -3,7 +3,7 @@ import { devtools, persist } from "zustand/middleware";
 // firebase:
 import { db } from "@/firebase/config";
 import {
-	collection,	
+	collection,
 	getDocs,
 	deleteDoc,
 	doc,
@@ -98,13 +98,25 @@ export const useStore = create<TPostState>()(
 					set({ loading: true });
 					window.setTimeout(async () => {
 						let querySnapshot = await getDocs(
-							query(postsRef, where("category", "in", category.split(",")), orderBy(order, dir), startAfter(start), limit(3))
+							query(
+								postsRef,
+								where("category", "in", category.split(",")),
+								orderBy(order, dir),
+								startAfter(start),
+								limit(3)
+							)
 						);
 						// Проверка на последнюю страницу (свойство size)
 						if (!querySnapshot.size) {
 							start = "";
 							querySnapshot = await getDocs(
-								query(postsRef, where("category", "in", category.split(",")), orderBy(order, dir), startAfter(start), limit(3))
+								query(
+									postsRef,
+									where("category", "in", category.split(",")),
+									orderBy(order, dir),
+									startAfter(start),
+									limit(3)
+								)
 							);
 						}
 
@@ -192,7 +204,7 @@ export const useStore = create<TPostState>()(
 			updateRemotePost: async (id: string, { msg, login }: updatePost) => {
 				try {
 					const docRef = doc(db, constants.COLLECTION_NAME, id);
-					await updateDoc(docRef, { msg, login, date: +new Date()});
+					await updateDoc(docRef, { msg, login, date: +new Date() });
 				} catch (err) {
 					if (err instanceof Error) console.warn(err.message);
 				}

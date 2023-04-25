@@ -14,7 +14,7 @@ export const Pagination = () => {
 	return (
 		<section className={styles.pagination}>
 			<div className={styles.pagination__arrows}>
-				<span className={`${styles.pagination__arrows__right} material-symbols-outlined`} id="next" onClick={handlePaginationForward}>{" "} keyboard_double_arrow_left {" "}</span> ...
+				<span className={`${styles.pagination__arrows__right} material-symbols-outlined`} id="next" onClick={handlePaginationForward}>{" "} keyboard_double_arrow_left {" "}</span> next page ...
 			</div>
 		</section>
 	);

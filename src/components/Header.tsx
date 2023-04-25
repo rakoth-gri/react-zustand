@@ -6,7 +6,7 @@ import logo from "../../public/next.svg";
 // константы
 import { constants } from "@/constants/constants";
 // стили
-import styles from "../styles/Header.module.sass";
+import styles from "./Header.module.sass";
 
 export const Header: FC = memo(() => {
 	const { pathname } = useRouter();

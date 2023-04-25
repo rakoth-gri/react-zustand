@@ -7,8 +7,9 @@
     border-radius: $app-border-radius
     margin: $app-sm-pd 0
     font-size: $app-sm-ff
-    font-weight: 300
+    font-weight: 400
     position: relative
+    color: $app-dark-color
 
 .header
     display: flex
@@ -19,15 +20,18 @@
 .login, .date
     display: block
     padding: $app-sm-pd
-    text-transform: capitalize
+       
 .date
     color: $app-danger-color
+    font-variant: small-caps
+    font-weight: 500
+    text-transform: uppercase
 
 .msg, .input
     padding: $app-sm-pd
     text-align: justify
     margin: $app-sm-pd 0
-    font-weight: 300
+    
 
 .input.login
     width: auto    
@@ -82,21 +86,25 @@
         top: 2px
 
 // Кнопка
-.button
+.update, .cancel
     position: absolute
     border: 1px solid $app-light-color
     width: auto
     bottom: 1rem
     left: -10%
     border-radius: $app-border-radius
-    color: $app-light-color
+    color: green
     font-weight: 500
     padding: $app-sm-pd
     transition: 0.2s all linear
     cursor: pointer
+    opacity: 0.1   
 
-    &:hover
-        color: $app-danger-color
+.activeUpdate
+   left: 40%
+   opacity: 0.88  
 
-.active
-   left: 40%         
+.activeCancel
+   left: 48%
+   color: $app-danger-color
+   opacity: 0.88                 

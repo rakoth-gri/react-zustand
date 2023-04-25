@@ -8,6 +8,7 @@ import { TPost } from "@/zustand/types";
 // компоненты
 import { Error } from "./ui/Error";
 import { Modal } from "./ui/Modal";
+import { Select } from "./ui/Select";
 // сервисы
 import { genPostCode } from "@/service/genPostCode";
 // константы
@@ -16,8 +17,9 @@ import styles from "./AddPostForm.module.sass";
 
 export const AddPostForm = memo(() => {
 	const [post, setPost] = useState<{ [key: string]: string }>({ login: "", msg: "", category: "" });
-	const [error, setError] = useState({ login: " ", msg: " ", category: " " });
+	const [error, setError] = useState<{ [key: string]: string }>({ login: " ", msg: " ", category: " "});
 	const [modal, setModal] = useState(false);
+	
 	const [addPost, addRemotePost, category] = useStore((state) => [
 		state.addPost,
 		state.addRemotePost,
@@ -28,8 +30,11 @@ export const AddPostForm = memo(() => {
 
 	const isDisabled = () => !(post.login && post.msg && post.category);
 
-	const formElemsHandler: ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement> = (e) => {
-		setPost({ ...post, [e.target.name]: e.target.value });
+	const ChangePostHandler: ChangeEventHandler<
+		HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement > = (e) => {
+		if (!(e.target instanceof HTMLElement)) return;
+
+		setPost({ ...post, [e.target.name]: e.target.value.toLowerCase() });
 		setError({ ...error, [e.target.name]: e.target.value });
 	};
 
@@ -47,7 +52,7 @@ export const AddPostForm = memo(() => {
 
 		addRemotePost(candidate);
 		addPost(candidate);
-		setPost({ login: "", msg: "", category: ""});
+		setPost({ login: "", msg: "", category: "" });
 		setModal(true);
 
 		setTimeout(() => {
@@ -64,7 +69,7 @@ export const AddPostForm = memo(() => {
 					placeholder="логин:"
 					name="login"
 					className={styles.input}
-					onChange={formElemsHandler}
+					onChange={ChangePostHandler}
 					value={post.login}
 				/>
 				{!error.login && <Error value="Заполните поле Логина..." />}
@@ -72,18 +77,19 @@ export const AddPostForm = memo(() => {
 					placeholder="сообщение:"
 					name="msg"
 					className={styles.textarea}
-					onChange={formElemsHandler}
+					onChange={ChangePostHandler}
 					value={post.msg}
 				></textarea>
 				{!error.msg && <Error value="Заполните поле для сообщения..." />}
-				<select className={styles.select} name="category" value={post.category} onChange={formElemsHandler}>					
+				{/* <select className={styles.select} name="category" value={post.category} onChange={formElemsHandler}>
 					{constants.SELECT.CATEGORY.map(({ value, text }) => (
 						<option value={value} key={value}>
 							{" "}
 							{text}{" "}
 						</option>
 					))}
-				</select>
+				</select> */}
+				<Select value={post.category} setPost={setPost} post={post} error={error} setError={setError}/>
 				{!error.category && <Error value="Выберите категорию поста..." />}
 				<button
 					className={`${styles.formButton} ${isDisabled() && styles.formButton__disabled}`}
