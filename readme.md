@@ -1,4 +1,4 @@
-# DEPLOY FIREBASE:
+## DEPLOY FIREBASE:
 
 ## ssg variant: <br>
 
@@ -31,11 +31,13 @@ During initializing - choose the default dir 'out' - we created earlier
 
 After deploying, view your app!
 
-# DEPLOY VERSEL: <br>
+## DEPLOY VERSEL: <br>
 
 1. **Create a git repo with your project** <br>
 2. **Create an account using GITHUB PROFILE at [VERSEL OFFICIAL WEBSITE](https://vercel.com.)** <br>
 3. **ADD A NEW PROJECT** <br>
 4. **FOLLOW THE INSTRUCTIONS BELOW** <br>
 
-## **P.S. to determine enviroment variables inside VERCEL HOSTING - add them without NEXT_PUBLIC_ browser prefix**
+## **P.S. to determine enviroment variables inside VERCEL HOSTING - add them without 'NEXT_PUBLIC_'  prefix**
+
+## See the hole project you can click the link [PROJECT](https://react-zustand-ts-firebase.vercel.app/posts)
