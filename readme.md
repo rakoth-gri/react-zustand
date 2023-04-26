@@ -40,4 +40,4 @@ After deploying, view your app!
 
 ## **P.S. to determine enviroment variables inside VERCEL HOSTING - add them without 'NEXT_PUBLIC_'  prefix**
 
-## See the hole project you can click the link [PROJECT](react-zustand-5ulo9i7ow-gri.vercel.app)
+## See the hole project you can click the link [PROJECT](https://react-zustand-beryl.vercel.app/)
