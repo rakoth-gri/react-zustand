@@ -21,7 +21,7 @@ export const AddPostForm = memo(() => {
 
 	const [post, setPost] = useState<{ [key: string]: string }>({ login: "", msg: "", category: "" });
 	const [error, setError] = useState<{ [key: string]: string }>({ login: " ", msg: " ", category: " " });
-	const [modal, setModal] = useState(false);
+	const [modal, setModal] = useState(true);
 
 	const [addPost, addRemotePost, category] = useStore(
 		(state) => [state.addPost, state.addRemotePost, state.category],
