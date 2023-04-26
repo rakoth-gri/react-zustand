@@ -34,7 +34,7 @@ const Posts = (props: { posts: Array<TPost> }) => {
 				{loading && <Spinner />}
 				<Title Tag={"h1"} color={"rgba(0,0,0, .89)"}>
 					{" "}
-					Опубликованные посты:{" "}
+					Список постов:{" "}
 				</Title>
 				<Filter Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировка:'}/>
 				<Pagination />

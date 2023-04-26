@@ -29,21 +29,15 @@ const SinglePost = memo((props: { post: TPost }) => {
 		};
 	}, []);
 
-	return (
-		// <Layout title="post" desc="Lets read the current post  ...">
-		// 	<h1>Post with id {props.post.id}</h1>
-		// 	<Post {...props.post} />
-		// </Layout>
-
+	return (		
 		<Layout title="post" desc="Lets read the current post  ...">
 			<>
 				<Link href="/posts">
 					<NavButton>Назад </NavButton>
 				</Link>
-
 				{loading && <Spinner />}
 				<Title Tag={"h1"} color={"rgba(0,0,0, .89)"}>
-					Post with postCode {postCode}
+					Post Page
 				</Title>
 				{singlePost.length && singlePost.map((post) => <Post {...post} />)}
 			</>

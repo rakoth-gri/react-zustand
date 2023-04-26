@@ -23,8 +23,9 @@
 
     &.active
         z-index: 10
-        opacity: .85
+        opacity: .95
         transform: scale(1.0)
+        border: 3px solid $app-greyTransparent-color
 
 .menuList
     display: flex
@@ -33,7 +34,6 @@
     padding: $app-md-pd
 
     li:last-child
-
         .menuList__link
             color: $app-danger-color
 
@@ -56,7 +56,7 @@
     z-index: 15
     display: none
     top: 2%
-    right: 0.1%
+    right: 0.4%
 
 // MEDIA QUERRIES ----------- ///////////////////////////////////////// 
 
@@ -90,22 +90,16 @@
             font-size: 2.5rem
 
 @media screen and (max-width: 767.99px)
-
-    .burger__icon
-        font-size: 2.1rem
-
     .nav
         width: 30%
-
-    .menuList__link__link
-        font-size: $app-md-ff
+  
 
 @media screen and (max-width: 575.99px)
     .nav
         width: 40%
 
-    .menuList__link__link
-        font-size: 1rem
+    .menuList__link
+        font-size: 1.2rem
 
     .logo
         width: 60px
