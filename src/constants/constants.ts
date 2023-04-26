@@ -4,23 +4,23 @@ import { CSSProperties } from "react";
 export const constants = {
 	MENU_LIST: [
 		{
-			title: "home",
+			title: "главная",
 			url: "/",
 		},
 		{
-			title: "posts",
+			title: "посты",
 			url: "/posts",
 		},
 		{
-			title: "addPost",
+			title: "добавить пост",
 			url: "/addPost",
 		},
 		{
-			title: "about",
+			title: "о проекте",
 			url: "/about",
 		},
 		{
-			title: "favourite",
+			title: "избранное",
 			url: "/favourite",
 		},
 	],
