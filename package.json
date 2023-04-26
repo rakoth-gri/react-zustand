@@ -1,7 +1,7 @@
 {
 	"name": "next-2023",
 	"version": "0.1.0",
-	"private": true,	
+	"private": true,
 	"scripts": {
 		"dev": "next dev -p 3013",
 		"build": "next build",
@@ -9,6 +9,11 @@
 		"export": "next export",
 		"lint": "next lint"
 	},
+	"browserslist": [
+		">0.3%",
+		"not dead",
+		"not op_mini all"
+	],
 	"dependencies": {
 		"@types/node": "18.15.11",
 		"@types/react": "18.0.35",
@@ -24,6 +29,7 @@
 	},
 	"devDependencies": {
 		"@types/uuid": "^9.0.1",
+		"autoprefixer": "^10.4.14",
 		"sass": "^1.62.0"
 	}
 }
