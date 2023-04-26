@@ -2,10 +2,10 @@
 @import "../../styles/mixins"
 
 .category
-    position: fixed
+    position: absolute
     background-color: $app-greyTransparent-color
-    top: 132px
-    right: 0%
+    top: 2%
+    right: 1%
     color: $app-light-color
     font-family: $app-base-font
     font-weight: 500
@@ -13,6 +13,7 @@
     font-size: 20px
     z-index: 4
     width: 19%
+    cursor: pointer
 
     &__panel
         display: flex
@@ -29,14 +30,15 @@
         top: 100%
         transform: translateX(120%)
         transition: 0.2s all ease
+        opacity: 0
 
         &.active
             transform: translateX(0%)
+            opacity: 1
 
         &__item
             padding: $app-sm-pd
             text-align: center
-            cursor: pointer
 
             @include after
 
@@ -57,7 +59,7 @@
 @media screen and (max-width: 1199.98px)
     .category
         width: 23%
-        right: 1%
+        right: 0%
 
 @media screen and (max-width: 991.98px)
     .category
@@ -77,5 +79,4 @@
 @media screen and (max-width: 575.99px)
 
     .category
-        top: 12.5%
         width: 42%

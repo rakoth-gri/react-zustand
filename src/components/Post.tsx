@@ -13,7 +13,7 @@ import { editIcon } from "@/constants/constants";
 import { dateFormatter } from "@/service/dateFormatter";
 import { LoginView } from "@/service/loginView";
 
-export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite }: TPost) => {
+export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite, category }: TPost) => {
 	const [edit, setEdit] = useState(false);
 	const [editFields, setEditFields] = useState({ login: "", msg: "" });
 
@@ -77,11 +77,16 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 		<article className={styles.post} style={edit ? { backgroundColor: "rgba(0,0,0, .8)" } : undefined}>
 			<div className={styles.header}>
 				<time className={styles.date}> {dateFormatter(date)} </time>
+				<em className={styles.category}>
+					{" "}
+					<span className="material-symbols-outlined">category</span>
+					{category}{" "}
+				</em>
 				{edit ? (
 					<input
 						type="text"
 						className={`${styles.input} ${styles.login}`}
-						placeholder="Редактировать:"
+						placeholder="Логин:"
 						onChange={(e) => setEditFields({ ...editFields, [e.target.name]: e.target.value })}
 						value={editFields.login}
 						name="login"
@@ -94,10 +99,9 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 				)}
 			</div>
 			{edit ? (
-				<input
-					type="text"
+				<textarea
 					className={styles.input}
-					placeholder="Редактировать:"
+					placeholder="Сообщение:"
 					autoFocus
 					onChange={(e) => setEditFields({ ...editFields, [e.target.name]: e.target.value })}
 					value={editFields.msg}
@@ -139,17 +143,11 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 				</span>
 			</div>
 			<div className={edit ? `${styles.editButtons} ${styles.activeEditButtons}` : styles.editButtons}>
-				<button
-					className={styles.update}
-					onClick={updatePostHandler}
-				>
+				<button className={styles.update} onClick={updatePostHandler}>
 					{" "}
 					Обновить
 				</button>
-				<button
-					className={styles.cancel}
-					onClick={() => setEdit(false)}
-				>
+				<button className={styles.cancel} onClick={() => setEdit(false)}>
 					{" "}
 					Отмена
 				</button>

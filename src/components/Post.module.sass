@@ -33,7 +33,7 @@
     margin: $app-sm-pd 0
 
 .input.login
-    width: auto
+    width: 30%
 
 .input
     color: $app-light-color
@@ -51,6 +51,15 @@
         text-transform: uppercase
         padding: $app-sm-pd
         display: inline
+
+.category
+    margin-left: 1em
+    display: flex
+    align-items: center
+    justify-content: center
+    color: teal
+    font-style: normal
+    font-weight: 700        
 
 // иконки -------->>>>>>
 //////////////////////////////////////////////////
@@ -91,19 +100,19 @@
     display: flex
     width: auto
     bottom: 5%
-    left: 10%
+    left: 12%
     opacity: 0
     transform: scale(0)
-    transition: 0.3s all ease  
+    transition: 0.3s all ease
 
-.activeEditButtons    
+.activeEditButtons
     opacity: 1
-    transform: scale(1)    
+    transform: scale(1)
 
-.update, .cancel    
+.update, .cancel
     border: 1px solid $app-light-color
     width: auto
-    bottom: 1rem   
+    bottom: 1rem
     border-radius: $app-border-radius
     color: green
     font-weight: 500
@@ -112,14 +121,12 @@
     cursor: pointer
     margin-right: 0.8rem
 
-.cancel     
+.cancel
     color: $app-danger-color
 
 // MEDIA QUERRIES ----------- /////////////////////////////////////////          
 
-@media screen and (max-width: 991.98px)
-    .login
-        padding: 4px 0px
+ 
 
 @media screen and (max-width: 767.98px)
     .likesCount
@@ -132,4 +139,6 @@
     .link__container__link
         font-size: inherit
 
-    
+    .update, .cancel
+        padding: 6px
+        margin-right: 0.4rem

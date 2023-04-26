@@ -37,15 +37,15 @@ export const constants = {
 	SELECT: {
 		ORDER_BY: [
 			{
-				text: "имени",
+				text: "логин",
 				value: "login",
 			},
 			{
-				text: "дате",
+				text: "дата",
 				value: "date",
 			},
 			{
-				text: "по лайкам",
+				text: "лайки",
 				value: "likesCount",
 			},
 		],
@@ -110,4 +110,4 @@ export const constants = {
 export type TConstants = typeof constants;
 
 // GOOGLE ICON DELETE
-export const editIcon: CSSProperties = { position: "relative", top: "-2px" };
+export const editIcon: CSSProperties = { position: "relative", top: "-2.3px" };

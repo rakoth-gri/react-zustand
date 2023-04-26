@@ -14,14 +14,9 @@ export const Category = () => {
 
 	const [CSS, setCSS] = useState<string>(styles.category__list);
 
-	const changeCSSHandler: MouseEventHandler<HTMLElement> = (e) => {
-		if (e.target instanceof HTMLElement) {
-			if (e.target.closest(`.${styles.category__panel}`)) {
-				setCSS(`${styles.category__list} ${styles.active}`);
-				return;
-			}
-			setCSS(styles.category__list);
-		}
+	const changeCSSHandler = () => {
+		if (!CSS.includes(styles.active)) setCSS(`${styles.category__list} ${styles.active}`);
+		else setCSS(styles.category__list);
 	};
 
 	return (
