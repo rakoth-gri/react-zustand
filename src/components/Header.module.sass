@@ -19,7 +19,7 @@
 
 .nav
     width: 59%
-    background-color: inherit
+    background-color: transparent
 
     &.active
         z-index: 10
@@ -58,6 +58,23 @@
     top: 2%
     right: 0.4%
 
+.theme
+    width: 4%
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: 50%
+    left: 35%
+    transform: translate(-35%, -50%)
+    font-family: $app-base-font
+    font-weight: 500
+    cursor: pointer
+
+    &__icon
+        font-size: 2.3rem
+        margin: 0px 0px 0px 10px
+
 // MEDIA QUERRIES ----------- ///////////////////////////////////////// 
 
 @media screen and (max-width: 1199.98px)
@@ -70,6 +87,7 @@
         opacity: 0
         transform: scale(0.1)
         transition: 0.3s all linear
+        background-color: $app-element-color
 
     .menuList
         flex-direction: column
@@ -100,3 +118,10 @@
 
     .header
         height: 10vh
+
+    .theme__icon
+        font-size: 1.8rem
+
+.dark
+    background-color: var(--app-dark-bg)
+    color: var(--app-dark-color)

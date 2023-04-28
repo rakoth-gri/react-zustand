@@ -18,7 +18,7 @@ const AddPost = () => {
 	return (
 		<Layout title="addPost" desc="Here, you can type something new...">
 			{loading && <Spinner/>}
-			<Title Tag={"h1"} color={"rgba(0,0,0, .89)"}> Опубликуйте свой пост:  </Title>
+			<Title Tag={"h1"}> Опубликуйте свой пост:  </Title>
 			<AddPostForm />
 		</Layout>
 	);

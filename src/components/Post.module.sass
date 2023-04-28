@@ -1,7 +1,7 @@
 @import "../styles/variables.module.sass"
 
 .post
-    background-color: #f3cbcb
+    background-color: $app-element-color
     padding: $app-sm-pd
     font-family: $app-base-font
     border-radius: $app-border-radius
@@ -10,6 +10,10 @@
     font-weight: 400
     position: relative
     color: $app-dark-color
+
+.dark
+    background-color: var(--app-dark-bg)
+    color: var(--app-dark-color)
 
 .header
     display: flex
@@ -59,7 +63,7 @@
     justify-content: center
     color: teal
     font-style: normal
-    font-weight: 700        
+    font-weight: 700
 
 // иконки -------->>>>>>
 //////////////////////////////////////////////////

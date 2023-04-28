@@ -10,7 +10,7 @@ import { Title } from "./Title";
 import styles from "./Category.module.sass";
 
 export const Category = () => {
-	const [category, setCategory] = useStore((state) => [state.category, state.setCategory], shallow);
+	const [category, setCategory, theme] = useStore((state) => [state.category, state.setCategory, state.theme], shallow);
 
 	const [CSS, setCSS] = useState<string>(styles.category__list);
 
@@ -23,12 +23,12 @@ export const Category = () => {
 		<aside className={styles.category} onClick={changeCSSHandler}>
 			<div className={styles.category__panel}>
 				<span className={`material-symbols-outlined ${styles.category__trigger}`}>menu_open</span>
-				<Title Tag="h4" color="rgba(0,0,0,.89)" style={{ marginLeft: "auto" }}>
+				<Title Tag="h4" style={{ marginLeft: "auto" }}>
 					{" "}
 					<strong> {category.text} </strong>{" "}
 				</Title>
 			</div>
-			<ul className={CSS}>
+			<ul className={`${CSS} ${theme === "dark" && styles.dark}`}>
 				{constants.SELECT.CATEGORY.map(({ value, text }) => {
 					return (
 						<li

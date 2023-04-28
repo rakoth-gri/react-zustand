@@ -30,7 +30,7 @@ const Favourite = () => {
 			<Link href="/posts">
 				<NavButton> К странице постов </NavButton>
 			</Link>
-			<Title Tag="h1" color={"rgba(0,0,0, .89)"}>
+			<Title Tag="h1">
 				{" "}
 				Избранные посты{" "}
 			</Title>

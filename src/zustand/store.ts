@@ -38,6 +38,7 @@ export const useStore = create<TPostState>()(
 			error: "",
 			orderBy: constants.SELECT.ORDER_BY[1],
 			category: constants.SELECT.CATEGORY[0],
+			theme: "light",
 			// методы -------
 			// ----------------------------------------------------------
 			addPost: (post: TPost) => set((state) => ({ posts: [post, ...state.posts] })),
@@ -59,6 +60,9 @@ export const useStore = create<TPostState>()(
 					})),
 				});
 			},
+			changeTheme: () => {				
+				set((state) => ({ ...state, theme: state.theme === "light" ? "dark" : "light" }));
+			},			
 			// FILTERS ---------------
 			setOrderBy: (orderBy: IOption) => {
 				set((state) => ({ ...state, orderBy: orderBy }));

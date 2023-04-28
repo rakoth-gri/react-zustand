@@ -7,7 +7,7 @@ const About = () => {
 	
 	return (
 		<Layout title="about" desc="We tell you about our product honestly ...">
-			<Title Tag={"h1"} color="rgba(0,0,0,. 89)">
+			<Title Tag={"h1"}>
 				{" "}
 				Что ты знаешь о нас...{" "}
 			</Title>

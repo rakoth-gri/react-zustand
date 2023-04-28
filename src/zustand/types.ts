@@ -7,9 +7,8 @@ export type TPost = {
 	postCode: number;
 	likesCount: number;
 	favorite: boolean;
-	category: string
+	category: string;
 };
-
 
 export type updatePost = { login: string; msg: string };
 
@@ -21,6 +20,7 @@ export type TPostState = {
 	orderBy: IOption;
 	category: IOption;
 	singlePost: Array<TPost>;
+	theme: string;
 	// Post
 	addPost: (post: TPost) => void;
 	addRemotePost: (post: TPost) => void;
@@ -48,6 +48,8 @@ export type TPostState = {
 	// Pagination
 	start: any;
 	resetStart: () => void;
+	// Темизация
+	changeTheme: () => void;
 };
 
 // options в составе Select

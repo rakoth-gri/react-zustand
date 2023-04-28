@@ -12,6 +12,7 @@ import { editIcon } from "@/constants/constants";
 // сервисы
 import { dateFormatter } from "@/service/dateFormatter";
 import { LoginView } from "@/service/loginView";
+import getThemeClass from "@/service/getThemeClass";
 
 export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite, category }: TPost) => {
 	const [edit, setEdit] = useState(false);
@@ -26,6 +27,7 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 		incrementLikesCount,
 		toggleFavorite,
 		toggleRemoteFavorite,
+		theme
 	} = useStore(
 		(state) => ({
 			removePost: state.removePost,
@@ -36,6 +38,7 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 			incrementLikesCount: state.incrementLikesCount,
 			toggleFavorite: state.toggleFavorite,
 			toggleRemoteFavorite: state.toggleRemoteFavorite,
+			theme: state.theme
 		}),
 		shallow
 	);
@@ -74,7 +77,7 @@ export const Post = memo(({ id, login, msg, date, postCode, likesCount, favorite
 	};
 
 	return (
-		<article className={styles.post} style={edit ? { backgroundColor: "rgba(0,0,0, .8)" } : undefined}>
+		<article className={getThemeClass(styles, "post", theme)} style={edit ? { backgroundColor: "rgba(0,0,0, .8)" } : undefined}>
 			<div className={styles.header}>
 				<time className={styles.date}> {dateFormatter(date)} </time>
 				<em className={styles.category}>

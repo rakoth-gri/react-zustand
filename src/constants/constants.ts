@@ -105,9 +105,12 @@ export const constants = {
 		purple: "#9333ea",
 		pink: "#be185d",
 		rose: "#9f1239",
-	},
+	},	
 };
 export type TConstants = typeof constants;
 
 // GOOGLE ICON DELETE
 export const editIcon: CSSProperties = { position: "relative", top: "-2.3px" };
+
+
+

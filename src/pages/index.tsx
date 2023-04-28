@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
 	return (
 		<Layout title="home" desc="A homepage of resourse">
-			<Title Tag={"h1"} color="rgba(0,0,0,. 89)">
+			<Title Tag={"h1"}>
 				{" "}
 				Главная страница блога...{" "}
 			</Title>

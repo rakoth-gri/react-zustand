@@ -10,6 +10,7 @@
     position: relative
     margin: $app-md-pd auto
     font-weight: 300
+    background-color: $app-element-color
     // все опции ---------- --------------
     &__options
         width: 100%
@@ -19,12 +20,14 @@
         background-color: inherit
         border-radius: 0 0 $app-border-radius $app-border-radius
         z-index: 4
+        overflow-y: auto
+        height: 150px
 
     &__option
         text-align: center
         padding: $app-sm-pd
         color: $app-light-color
-        background-color: $app-element-color
+        background-color: inherit
         @include after
 
         &:hover
@@ -34,6 +37,10 @@
         border-left: 2px solid teal
         border-right: 2px solid teal
         color: teal
+
+.dark
+    background-color: rgba(0,0,0, .68)
+    color: var(--app-dark-color)
 
 @media screen and (max-width: 1199.98px)
     .select

@@ -13,6 +13,7 @@ import { Select } from "./ui/Select";
 // сервисы
 import { genPostCode } from "@/service/genPostCode";
 import { deBounce } from "@/service/deBounce";
+import getThemeClass from "@/service/getThemeClass";
 // константы
 import styles from "./AddPostForm.module.sass";
 
@@ -23,8 +24,8 @@ export const AddPostForm = memo(() => {
 	const [error, setError] = useState<{ [key: string]: string }>({ login: " ", msg: " ", category: " " });
 	const [modal, setModal] = useState(false);
 
-	const [addPost, addRemotePost, category] = useStore(
-		(state) => [state.addPost, state.addRemotePost, state.category],
+	const [addPost, addRemotePost, category, theme] = useStore(
+		(state) => [state.addPost, state.addRemotePost, state.category, state.theme],
 		shallow
 	);
 
@@ -70,7 +71,7 @@ export const AddPostForm = memo(() => {
 	return (
 		<div>
 			{modal && <Modal title={"благодарим"} msg={"Ваш пост добавлен!"} onClick={() => setModal(false)} />}
-			<form className={styles.form} onSubmit={formSubmitHandler}>
+			<form className={getThemeClass(styles, "form", theme)} onSubmit={formSubmitHandler}>
 				<input
 					type="text"
 					placeholder="логин:"

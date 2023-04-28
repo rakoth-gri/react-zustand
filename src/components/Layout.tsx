@@ -13,6 +13,7 @@ interface ILayoutProps {
 }
 
 export const Layout: FC<ILayoutProps> = memo(({ title, desc, children }) => {
+
 	return (
 		<>
 			<Head>

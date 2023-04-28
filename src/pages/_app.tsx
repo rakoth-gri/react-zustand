@@ -1,8 +1,16 @@
 import Head from "next/head";
+import { useEffect } from "react";
+import { useStore } from "@/zustand/store";
 import "@/styles/globals.sass";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
+	const changeTheme = useStore((store) => store.changeTheme);
+
+	useEffect(() => {
+		if (new Date().getHours() > 19) changeTheme();
+	}, []);
+
 	return (
 		<>
 			<Head>

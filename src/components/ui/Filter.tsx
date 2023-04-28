@@ -6,15 +6,14 @@ import styles from "./Filter.module.sass";
 import { IOption } from "@/zustand/types";
 
 interface IFilterProps {
-	Tag: string;
-	color: string;
+	Tag: string;	
 	param: IOption;
 	setParam: (param: IOption) => void;
 	list: IOption[];	
 	title: string;
 }
 
-function Filter({ Tag, color, param, setParam, list, title }: IFilterProps) {
+function Filter({ Tag, param, setParam, list, title }: IFilterProps) {
 	const [options, setOptions] = useState(false);
 
 	return (
@@ -22,7 +21,7 @@ function Filter({ Tag, color, param, setParam, list, title }: IFilterProps) {
 			className={styles.filter}
 			onClick={() => setOptions((prev) => !prev)}
 		>
-			<Title Tag={Tag} color={color} filter>
+			<Title Tag={Tag} filter>
 				{" "}
 				{title} <strong style={{ marginLeft: "0.1rem", color: "teal" }}> {param.text} </strong>
 			</Title>

@@ -30,16 +30,15 @@
         top: 100%
         transform: translateX(120%)
         transition: 0.2s all ease
-        opacity: 0
+        visibility: hidden
 
         &.active
             transform: translateX(0%)
-            opacity: 1
+            visibility: visible
 
         &__item
             padding: $app-sm-pd
             text-align: center
-
             @include after
 
             &:hover
@@ -54,7 +53,14 @@
 .selected
     color: $app-danger-color
 
+.dark
+    background-color: rgba(0,0,0, .9)
+    color: var(--app-dark-color)
+
+
 // MEDIA QUERRIES ----------- /////////////////////////////////////////         
+
+
 
 @media screen and (max-width: 1199.98px)
     .category

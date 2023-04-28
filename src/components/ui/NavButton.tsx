@@ -1,5 +1,4 @@
 import {ButtonHTMLAttributes, ReactNode} from 'react'
-
 import styles from "./NavButton.module.sass"
 
 interface INavButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
