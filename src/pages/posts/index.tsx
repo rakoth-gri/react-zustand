@@ -36,7 +36,7 @@ const Posts = (props: { posts: Array<TPost> }) => {
 					{" "}
 					Список постов:{" "}
 				</Title>
-				<Filter Tag="h4" color="brown" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировка:'}/>
+				<Filter Tag="h4" setParam={setOrderBy} param={orderBy} list={constants.SELECT.ORDER_BY} title={'Сортировка:'}/>
 				<Pagination />
 				<>
 					{posts.length ? (
